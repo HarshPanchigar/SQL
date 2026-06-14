@@ -11,3 +11,20 @@ INSERT INTO employee (id,name,salary)
     (003,"Shyam",70000);
 
 SELECT * FROM employee
+
+USE rev;
+
+SELECT * FROM employee
+
+CREATE Table temp1 (
+    id INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
+    name VARCHAR(50),
+    roll_no INT UNIQUE
+);
+
+INSERT INTO temp1(name,roll_no) 
+    VALUES
+    ("Harsh",001),
+    ("Ram",002),
+    ("Krishna",003);
+SELECT * FROM temp1
