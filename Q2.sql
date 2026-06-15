@@ -53,3 +53,38 @@ update students set id = "11" where id = "10";
 update students set id = "10" where id = "11";
 select * from students;
 
+create table departments (
+	dept_id int primary key,
+    dept_name varchar(50) not null
+);
+
+INSERT INTO departments VALUES
+(1, 'IT'),
+(2, 'HR'),
+(3, 'Sales');
+
+create table employees (
+	emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50) NOT NULL,
+    salary INT,
+    dept_id INT,
+	foreign key (dept_id) 
+    REFERENCES departments(dept_id)
+    on update cascade
+    on delete cascade
+    );
+    
+select * from employees;
+INSERT INTO employees VALUES
+(101, 'Harsh', 50000, 1),
+(102, 'Raj', 40000, 2),
+(103, 'Priya', 60000, 1),
+(104, 'Amit', 45000, 3),
+(105, 'Neha', 55000, 2);
+
+select * from departments;
+update departments set dept_name="CS" where dept_name = "IT";
+
+-- ----------------------------------------------------------
+
+
