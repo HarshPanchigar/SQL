@@ -11,7 +11,7 @@ create table student(
 insert into student(roll_no , name, marks, grade, city) values 
 (101, "anil", 78, "C", "Pune"),
 (102, "bhumika", 93, "A", "Mumbai"),
-(103, "chetan", 85, "B", "Mumbai"),
+(103, "chetan", 85, "B", "Mumbstudentsai"),
 (104, "dhruv", 96, "A", "Delhi"),
 (105, "emanuel", 12, "F", "Delhi"),
 (106, "farah", 82, "B", "Delhi");
@@ -82,9 +82,48 @@ INSERT INTO employees VALUES
 (104, 'Amit', 45000, 3),
 (105, 'Neha', 55000, 2);
 
+truncate table employees;
+
 select * from departments;
 update departments set dept_name="CS" where dept_name = "IT";
 
 -- ----------------------------------------------------------
 
 
+select * from students;
+
+CREATE TABLE departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50)
+);
+
+INSERT INTO departments VALUES
+(1, 'IT'),
+(2, 'HR'),
+(3, 'Sales'),
+(4, 'Marketing');
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    salary INT,
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+);
+
+INSERT INTO employees VALUES
+(101, 'Harsh', 50000, 1),
+(102, 'Raj', 40000, 2),
+(103, 'Priya', 60000, 1),
+(104, 'Amit', 45000, 3),
+(105, 'Neha', 55000, 2),
+(106, 'Karan', 70000, 1);
+
+
+select * from employees;
+
+select * from departments;
+
+select name, marks from students where city = "surat" and marks=(select max(marks) from students where city="surat");
+select name , id from students where id in (select id from students where id % 2 = 0);
+select id , name from students where id in (select id from students where id % 2 = 0);
