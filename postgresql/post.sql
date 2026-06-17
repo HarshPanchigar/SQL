@@ -52,3 +52,21 @@ VALUES
 (9, 'Anjali', 'Mehta', 'anjali.mehta@example.com', 'Finance', 61000.00, '2018-12-03'),
 
 (10, 'Vijay', 'Nair', 'vijay.nair@example.com', 'Marketing', 50000.00, '2020-04-19');
+
+
+select * from employees;
+select * from employees where dept in ('HR','IT')
+
+SELECT * from employees WHERE dept not in ('HR','IT','Finance');
+
+SELECT * from employees where salary BETWEEN 50000 and 60000;
+
+select DISTINCT dept from employees;
+
+select * from employees ORDER BY fname;
+
+SELECT * FROM employees LIMIT 3;
+
+SELECT * from employees WHERE fname like '%i%'
+
+SELECT * from employees WHERE dept like '__'
