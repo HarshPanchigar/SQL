@@ -70,3 +70,43 @@ SELECT * FROM employees LIMIT 3;
 SELECT * from employees WHERE fname like '%i%'
 
 SELECT * from employees WHERE dept like '__'
+
+select fname , salary from employees where salary = (SELECT min(salary) from employees);
+select fname , salary from employees where salary = (SELECT max(salary) from employees);
+
+select dept , count(dept) as total_dept from employees group by dept;
+
+select dept, sum(salary) from employees GROUP BY dept;
+
+SELECT concat('hello',' ','world');
+
+select emp_id,concat(fname,' ', lname),salary from employees;
+
+select emp_id,concat_ws(' ',fname, lname),salary from employees;
+
+select substr('hello buddy',7,10);
+select REPLACE('hello buddy','hello' , 'hey');
+
+SELECT reverse(dept) from employees;
+
+select replace(dept,'IT','CS') from employees;
+
+SELECT length(fname) from employees;
+SELECT emp_id ,fname , length(fname) as length from employees WHERE length(fname) > 4;
+
+select * , length(fname) FROM employees where length(fname) > 4;
+select upper(fname) from employees;
+
+select concat_ws(':',emp_id,fname,lname,dept,salary) from employees where emp_id =1;
+
+select concat_ws(':', emp_id ,concat_ws(' ',fname,lname),dept,salary) from employees WHERE emp_id =1;
+
+select * from employees;
+
+
+
+ select concat_ws(' ',concat(substr(dept,1,1),emp_id),fname) from employees where emp_id= 1 or
+emp_id=2;
+
+
+select * from employees where salary = (select min(salary) from employees);
